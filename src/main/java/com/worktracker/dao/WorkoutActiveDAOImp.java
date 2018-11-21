@@ -26,6 +26,12 @@ public class WorkoutActiveDAOImp implements WorkoutActiveDAO{
 		List<WorkoutActive> list= workActiveEntityRepo.findAll();
 		return list;
 	}
+	
+	public List<WorkoutActive> findByWrkoutId(int id) {
+		// TODO Auto-generated method stub
+		List<WorkoutActive> workout=workActiveEntityRepo.findByWrkoutId(id);
+		return workout;
+	}
 
 	public WorkoutActive findById(int id) {
 		// TODO Auto-generated method stub

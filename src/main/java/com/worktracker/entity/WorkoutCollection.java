@@ -35,7 +35,7 @@ public class WorkoutCollection {
 	@JoinColumn(name="category_id")
 	private WorkoutCategory workoutCategory;
 	
-
+	
 	public int getWorkoutId() {
 		return workoutId;
 	}

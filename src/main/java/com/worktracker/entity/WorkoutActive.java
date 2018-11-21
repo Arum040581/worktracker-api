@@ -1,5 +1,6 @@
 package com.worktracker.entity;
 
+import java.sql.Date;
 import java.sql.Time;
 
 import javax.persistence.Column;
@@ -8,7 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -36,26 +36,27 @@ public class WorkoutActive {
 	private Time endTime;
 	
 	@Column(name="start_date")
-	private Time startdate;
+	private Date startdate;
 	
 	@Column(name="end_date")
-	private Time enddate;
+	private Date enddate;
 	
-	
-	@ManyToOne
 	@JoinColumn(name="workout_id")
-	private WorkoutCollection workoutCollection;
+	private int workoutId;
+	
+	
 
 	
 
-	public WorkoutCollection getWorkoutCollection() {
-		return workoutCollection;
+	public int getWorkoutId() {
+		return workoutId;
 	}
 
-	public void setWorkoutCollection(WorkoutCollection workoutCollection) {
-		this.workoutCollection = workoutCollection;
+	public void setWorkoutId(int workoutId) {
+		this.workoutId = workoutId;
 	}
 
+	
 	public int getId() {
 		return id;
 	}
@@ -96,19 +97,19 @@ public class WorkoutActive {
 		this.endTime = endTime;
 	}
 
-	public Time getStartdate() {
+	public Date getStartdate() {
 		return startdate;
 	}
 
-	public void setStartdate(Time startdate) {
+	public void setStartdate(Date startdate) {
 		this.startdate = startdate;
 	}
 
-	public Time getEnddate() {
+	public Date getEnddate() {
 		return enddate;
 	}
 
-	public void setEnddate(Time enddate) {
+	public void setEnddate(Date enddate) {
 		this.enddate = enddate;
 	}
 	

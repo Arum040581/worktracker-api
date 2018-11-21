@@ -20,7 +20,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.worktracker.entity.WorkoutCollection;
 import com.worktracker.service.WorkoutCollectionService;
+import com.worktracker.vo.ResultVO;
 import com.worktracker.vo.WorkoutCollectionVO;
+import com.worktracker.vo.WrkCollection;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -49,25 +51,34 @@ public class WorkoutCollectionController {
 	 
 	 @GetMapping(value="/get", headers="Accept=application/json")
 	 public String  getWorkoutCollections() throws JsonProcessingException {	 
-	  List<WorkoutCollection> tasks=workoutCollectionService.getWorkoutCollectionList();
+	  List<WrkCollection> tasks=workoutCollectionService.getWorkoutCollectionList();
 	  System.out.println("WorkoutCollection: #### "+tasks);
 	  ObjectMapper mapper = new ObjectMapper(); 
 	  return mapper.writeValueAsString(tasks);
 	
 	 }
-
+	 
 	 @DeleteMapping(value="/{id}", headers ="Accept=application/json")
-		public ResponseEntity<WorkoutCollection> deleteWorkoutCollection(@PathVariable("id") int id){
+		public ResponseEntity<ResultVO> deleteWorkoutCollection(@PathVariable("id") int id){
 		 System.out.println("deleteWorkoutCollection id: "+id);
 		 WorkoutCollection wrkCol = workoutCollectionService.findById(id);
 		 System.out.println(wrkCol);	
+		 ResultVO resultVo =  new ResultVO();
 		
 			if (wrkCol == null) {
-				return new ResponseEntity<WorkoutCollection>(HttpStatus.NOT_FOUND);
+				resultVo.setReturnMsg("Data Constrain Error");
+				return new ResponseEntity<ResultVO>(resultVo,HttpStatus.NOT_FOUND);
 			}
+			
 			 System.out.println("deleteWorkoutCollection wrkCol: "+wrkCol.toString());
-			workoutCollectionService.deleteWrkCollectionById(id);
-			return new ResponseEntity<WorkoutCollection>(HttpStatus.NO_CONTENT);
+			 try {
+				 workoutCollectionService.deleteWrkCollectionById(id);
+				 resultVo.setReturnMsg("Successfully deleted!!");
+			 }catch(Exception ex) {
+				 resultVo.setReturnMsg("Data Constrain Error");
+			 }
+			
+			return new ResponseEntity<ResultVO>(resultVo,HttpStatus.NO_CONTENT);
 		}
 	 
 	/*@PutMapping(value="/update", headers="Accept=application/json")

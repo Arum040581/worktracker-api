@@ -33,7 +33,7 @@ public class WorkoutServiceImp implements WorkoutService {
 
 	public void createWorkoutActive(WorkoutActiveVO workoutActiveVO) {
 		// TODO Auto-generated method stub
-		WorkoutActive workoutActive = new WorkoutActive();
+		/*WorkoutActive workoutActive = new WorkoutActive();
 		workoutActive.setComment(workoutActiveVO.getComment());
 		workoutActive.setEnddate(workoutActiveVO.getEnddate());
 		workoutActive.setStartdate(workoutActiveVO.getStartdate());
@@ -41,7 +41,7 @@ public class WorkoutServiceImp implements WorkoutService {
 		workoutActive.setEndTime(workoutActiveVO.getEndTime());
 		workoutActive.setStatus(false);
 		workoutActive.setWorkoutCollection(workoutCollectionDAO.findById(workoutActiveVO.getWorkoutId()));
-		workoutActiveDAO.addWorkoutAct(workoutActive);
+		workoutActiveDAO.addWorkoutAct(workoutActive);*/
 	}
 
 	public void deleteUserById(int id) {

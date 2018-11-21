@@ -10,13 +10,13 @@ public class WorkoutActiveVO {
 	
 	private String comment;
 	
-	private Time startTime;
+	private String startTime;
 	
-	private Time endTime;
+	private String endTime;
 	
-	private Time startdate;
+	private String startDate;
 	
-	private Time enddate;	
+	private String endDate;	
 	
 	private int  workoutId;
 
@@ -44,36 +44,37 @@ public class WorkoutActiveVO {
 		this.comment = comment;
 	}
 
-	public Time getStartTime() {
+	
+	public String getStartTime() {
 		return startTime;
 	}
 
-	public void setStartTime(Time startTime) {
+	public void setStartTime(String startTime) {
 		this.startTime = startTime;
 	}
 
-	public Time getEndTime() {
+	public String getEndTime() {
 		return endTime;
 	}
 
-	public void setEndTime(Time endTime) {
+	public void setEndTime(String endTime) {
 		this.endTime = endTime;
 	}
 
-	public Time getStartdate() {
-		return startdate;
+	public String getStartDate() {
+		return startDate;
 	}
 
-	public void setStartdate(Time startdate) {
-		this.startdate = startdate;
+	public void setStartDate(String startDate) {
+		this.startDate = startDate;
 	}
 
-	public Time getEnddate() {
-		return enddate;
+	public String getEndDate() {
+		return endDate;
 	}
 
-	public void setEnddate(Time enddate) {
-		this.enddate = enddate;
+	public void setEndDate(String endDate) {
+		this.endDate = endDate;
 	}
 
 	public int getWorkoutId() {
